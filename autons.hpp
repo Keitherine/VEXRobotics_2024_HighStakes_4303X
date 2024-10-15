@@ -4,6 +4,10 @@
 
 extern Drive chassis;
 
-//void drive_example();
+void auton1();
+void auton2();
+void auton3();
+void matchAuton();
+void skills();
 
 void default_constants();
