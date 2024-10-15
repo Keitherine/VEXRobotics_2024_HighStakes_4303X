@@ -8,6 +8,8 @@ ez::Drive chassis
 (
     {5, 7, -13}, // Left Motors
     {-14, 15, -16}, // Right Motors, reversed
+      //14 is wacky - vincent
+    //top motors are flipped (13 & 15)
 
     7, // IMU Port
     3.25,  // Wheel Diameter
@@ -30,7 +32,11 @@ void initialize() {
 
   // Autonomous Selector
   ez::as::auton_selector.autons_add({
-     // Auton("Example Drive\n\nDrive forward and come back.", drive_example),
+     // Auton("Auton 1\n\nDrive forward and come back.", auton1),
+     // Auton("Auton 2\n\n", auton2),
+     // Auton("Auton 3\n\n", auton3),
+     // Auton("Match Auton\n\n", matchAuton),
+     // Auton("Skills Auton\n\n", skills),
   });
 
   // Initialize
