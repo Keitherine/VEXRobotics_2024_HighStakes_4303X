@@ -24,6 +24,29 @@ void default_constants() {
   chassis.slew_drive_constants_set(7_in, 80);
 }
 
+
+
+void auton1() {
+
+}
+
+void auton2() {
+
+}
+
+void auton3() {
+
+}
+
+void matchAuton() {
+
+}
+
+void skills() {
+
+}
+
+/*
 ///
 // Drive Example
 ///
@@ -211,3 +234,4 @@ void interfered_example() {
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
 }
+*/
