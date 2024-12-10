@@ -68,6 +68,76 @@ void winPoint() {
 
 // higher focus on scoring
 void normal(){
+  // move 27 inches towards the goal.
+  chassis.pid_drive_set(27_in, DRIVE_SPEED);
+
+  //clamp the stake into the robot
+  cl4mp.extend();
+
+  //run intake to score preload
+  ouroboros.move_voltage(12000);
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+  
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  //let go of mobile goal
+  cl4mp.retract();  
+
+  //move back a little
+  chassis.pid_drive_set(11_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  // turn slight right towards the other rings
+  chassis.pid_turn_set(35_deg, TURN_SPEED);
+
+  //move forward towards 24 inches to the rings.
+  chassis.pid_drive_set(24_in, DRIVE_SPEED);
+
+  //turn 90 degrees left around to get the rings
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_drive_set(6_in, DRIVE_SPEED);
+  
+  //run intake to score the red/blue ring.
+  //depend where you start it.
+  ouroboros.move_voltage(12000);
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+  
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  //Once you take the red or blue ring, go to the other rings
+  //in front of the previous ring picked up onto the intake.
+  chassis.pid_drive_set(12in, DRIVE_SPEED);
+
+  //run intake to score the red/blue ring.
+  //depend where you start it.
+  ouroboros.move_voltage(12000);
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+  
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  //Move back and put the rings that were taken into the stake.
+  chassis.pid_drive_set(-24_in, DRIVE_SPEED);
+  chassis.pid_drive_set(-90_in, TURN_SPEED);
+  chassis.pid_drive_set(24_in, DRIVE_SPEED);
+
+  //Clamp the stake onto the robot and put the rings onto the stake.
+  cl4mp.extend();
+
+  //run intake to score preload
+  ouroboros.move_voltage(12000);
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+  
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  //Bring the stake onto the side.
+  chassis.pid_drive_set(27_in, DRIVE_SPEED);
+
+  //let go of mobile goal
+  cl4mp.retract();
 
 }
 
