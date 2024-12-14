@@ -66,6 +66,69 @@ void winPoint() {
 
 }
 
+void winPoint2(){
+  //prep to get mobile goal
+  cl4mp.retract();
+
+  //Drive towards the stake
+  chassis.pid_drive_set(36_in, DRIVE_SPEED);
+  
+  //use clamp to get mobile goal
+  cl4mp.extend();
+
+ //run intake to score preload
+  ouroboros.move_voltage(12000);  
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  //Move back and trun slight right
+  chassis.pid_drive_set(-11_in, DRIVE_SPEED);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+
+  //Go straight towards the ring and take the rings into the intake
+  chassis.pid_drive_set(24_in, DRIVE_SPEED);
+  
+  //run intake to score preload
+  ouroboros.move_voltage(12000);  
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+
+  chassis.pid_drive_set(11_in, DRIVE_SPEED);
+    
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  chassis.pid_drive_set(-11_in, DRIVE_SPEED);
+  chassis.pid_turn_set(-90_deg, TURN_SPEED);
+  
+  chassis.pid_turn_set(24_in, DRIVE_SPEED);
+  //run intake to score preload
+  ouroboros.move_voltage(12000);  
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+
+  //stop intake
+  ouroboros.move_voltage(0);
+
+  chassis.pid_turn_set(-90_deg, TURN_SPEED);
+  chassis.pid_drive_set(24_in, DRIVE_SPEED);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_drive_set(16_in, DRIVE_SPEED);
+  chassis.pid_turn_set(-90_deg, TURN_SPEED);
+  chassis.pid_drive_set(12_in, DRIVE_SPEED);
+
+  //run intake to score preload
+  ouroboros.move_voltage(12000);  
+  pros::delay(500); //TEST TO SEE HOW LONG THIS WAITS --- ENSURE ENOUGH TIME TO SCORE RING
+
+  //stop intake
+  ouroboros.move_voltage(0);
+
+}
+
+
 // higher focus on scoring
 void normal(){
   // move 27 inches towards the goal.
