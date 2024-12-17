@@ -5,8 +5,6 @@
 // https://ez-robotics.github.io/EZ-Template/
 /////
 
-// Hello! - Jonathan
-
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
@@ -254,6 +252,16 @@ void opcontrol() {
     // . . .
     // Put more user control code here!
     // . . .
+
+    if(master.get_new_press(pros::E_CONTROLLER_DIGITAL_L1))
+    {
+      ladybrown.move_absolute(100);
+    }
+    else if(master.get_new_press(pros::E_CONTROLLER_DIGITAL_L2))
+    {
+      ladybrown.move_absolute(0);
+    }
+  
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
