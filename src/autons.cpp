@@ -1,4 +1,4 @@
-#include "main.h"
+#include "main.h" // IWYU pragma: keep
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
